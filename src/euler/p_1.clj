@@ -1,13 +1,9 @@
 (ns euler.p_1
-  (:require [clojure.core.reducers :as r]))
+  (:require [euler.util :as u]))
 
 (defn- multiple-of
   [a b]
   (= (mod a b) 0))
-
-(defn sum
-  [collection]
-  (r/fold + collection))
 
 (def numbers
   (for [n (range 1000)
@@ -17,5 +13,5 @@
 
 (def solution
   "http://projecteuler.net/problem=1"
-  (sum numbers))
+  (u/sum numbers))
 
