@@ -1,7 +1,8 @@
 (ns euler.p_6_test
+  (:use midje.sweet)
   (:require
-    [clojure.test :refer :all]
     [euler.p_6 :refer :all]))
 
-(deftest square-difference
-  (is (= 2640 (sd (range 1 11)))))
+(fact "smallest-multiple works"
+  (sd (range 1 11)) => 2640
+  )

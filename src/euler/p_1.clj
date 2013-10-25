@@ -5,13 +5,15 @@
   [a b]
   (= (mod a b) 0))
 
-(def numbers
+(defn numbers
+  []
   (for [n (range 1000)
         :when (or (multiple-of n 3)
                   (multiple-of n 5))]
     n))
 
-(def solution
+(defn solution
+  []
   "http://projecteuler.net/problem=1"
   (u/sum numbers))
 

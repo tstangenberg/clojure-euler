@@ -17,6 +17,18 @@
     a
   ))
 
+(defn max-palidrome-recursive
+  [from to]
+  (loop [a from
+         b from
+         m 0]
+    (let [max (max-palidrome m (* a b))]
+      (if (> a to)
+        max
+        (if (> b to)
+          (recur (inc a) from max)
+          (recur a (inc b) max))))))
+
 (defn solution-with-recur
   " Largest palindrome product
     Problem 4
@@ -25,17 +37,19 @@
     Find the largest palindrome made from the product of two 3-digit numbers.
     http://projecteuler.net/problem=4"
   []
-  (loop [a 100
-         b 100
-         m 0]
-    (let [max (max-palidrome m (* a b))]
-      (if (> a 999)
-        max
-        (if (> b 999)
-          (recur (inc a) 100 max)
-          (recur a (inc b) max))))))
+  (max-palidrome-recursive 100 999))
 
-(defn solution-with-loop
+
+(defn max-palidrome-for-loop
+  [from to]
+  (apply max
+    (for [a (range from (inc to))
+          b (range from (inc to))
+          :let [palidrome (* a b)]
+          :when (palidrome? palidrome)]
+      palidrome)))
+
+(defn solution
   " Largest palindrome product
     Problem 4
     A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -43,16 +57,11 @@
     Find the largest palindrome made from the product of two 3-digit numbers.
     http://projecteuler.net/problem=4"
   []
-  (apply max
-    (for [a (range 100 1000)
-          b (range 100 1000)
-          :let [palidrome (* a b)]
-          :when (palidrome? palidrome)]
-      palidrome)))
-
-(println "solution-with-loop")
-(time (solution-with-loop))
-(println "")
-(println "solution-with-recur")
-(time (solution-with-recur))
+  (println "solution-with-for-loop")
+  (let [s (time (max-palidrome-for-loop 100 999))]
+    (println "")
+    (println "solution-with-recur")
+    (time (max-palidrome-recursive 100 999))
+  s)
+)
 

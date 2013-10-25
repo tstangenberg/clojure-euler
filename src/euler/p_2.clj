@@ -7,11 +7,13 @@
        (cons a (lazy-seq (rfib b (+ a b)))))
     1 2))
 
-(def numbers
+(defn numbers
+  []
   (filter even? (take-while #(< % 4000000) (fib-seq))))
 
-(def solution
+(defn solution
   "http://projecteuler.net/problem=2"
+  []
   (u/sum numbers))
 
 

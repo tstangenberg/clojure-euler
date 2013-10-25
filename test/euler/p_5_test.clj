@@ -1,7 +1,8 @@
 (ns euler.p_5_test
+  (:use midje.sweet)
   (:require
-    [clojure.test :refer :all]
     [euler.p_5 :refer :all]))
 
-(deftest smallest-multiple
-  (is (= 2520 (sm (range 1 11)))))
+(fact "smallest-multiple works"
+  (sm (range 1 11)) => 2520
+  )
