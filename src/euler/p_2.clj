@@ -8,7 +8,7 @@
     1 2))
 
 (def numbers
-  (filter #(< % 4000000) (fib-seq)))
+  (filter even? (take-while #(< % 4000000) (fib-seq))))
 
 (def solution
   "http://projecteuler.net/problem=2"

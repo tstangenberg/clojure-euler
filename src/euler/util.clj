@@ -4,4 +4,4 @@
 
 (defn sum
   [collection]
-  (r/fold + collection))
+  (r/fold +' collection))
