@@ -5,4 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojure-contrib "1.2.0"]]
+  :dev-dependencies [[com.stuartsierra/lazytest "1.1.2"]
+                     [lein-autotest "1.1.0"]]
+  :repositories {"stuartsierra-releases" "http://stuartsierra.com/maven2"}
   :main "euler.p_2")
