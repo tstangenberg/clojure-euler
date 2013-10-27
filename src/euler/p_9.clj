@@ -27,7 +27,7 @@
     There exists exactly one Pythagorean triplet for which a + b + c = 1000.
     Find the product abc.
 
-    http://projecteuler.net/problem=8"
+    http://projecteuler.net/problem=9"
   []
   (let [triplet (spt 1000)
         a (first triplet)
